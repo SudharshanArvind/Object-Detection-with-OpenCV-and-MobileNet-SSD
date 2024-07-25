@@ -38,3 +38,12 @@ ssd_mobilenet_v3_large_coco_2020_01_14.pbtxt (model configuration)
 
 frozen_inference_graph.pb (pre-trained model weights)
 coco.names (COCO class labels)
+
+# Explanation
+Webcam Initialization: The script initializes the webcam and sets the frame dimensions.
+
+Loading Class Names: Class names are loaded from the coco.names file into a list.
+
+Loading the Model: The pre-trained MobileNet-SSD model is loaded using OpenCV's DNN module.
+
+Detection and Display: The script captures frames from the webcam, performs object detection, and draws bounding boxes and class labels for detected objects. The frame is then displayed in a window.
