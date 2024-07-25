@@ -1,11 +1,10 @@
 import cv2
 thres=0.5
 
-
+#opening camera and setting the box
 cap=cv2.VideoCapture(0)
 cap.set(3,1080)
 cap.set(4,1080)
-
 
 
 #loading class names
@@ -14,8 +13,11 @@ classFile='coco.names'
 with open(classFile,'r') as f:
     classNames=f.read().rstrip('\n').split('\n')
 
+
+#importing the required files
 configPath='ssd_mobilenet_v3_large_coco_2020_01_14.pbtxt'
 weightsPath='frozen_inference_graph.pb'
+
 
 #creating detection model
 net=cv2.dnn_DetectionModel(weightsPath,configPath)
@@ -23,6 +25,7 @@ net.setInputSize(320,320)
 net.setInputScale(1.0/127.5)
 net.setInputMean((127.5,127.5,127.5))
 net.setInputSwapRB(True)
+
 
 #main loop
 while True:
